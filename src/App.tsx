@@ -6,7 +6,7 @@ function App() {
           <h1>Welcome to our beautiful Pokedex</h1>
           <section className="search-bar-input">
               <input type="text" placeholder="Looking for a pokemon ?"/>
-              <button><img src="../public/Poke_Ball.webp" alt="Pokeball-Button"/></button>
+              <button><img src="../public/pokeball-pokemon-svgrepo-com.svg" alt="Pokeball-Button"/></button>
           </section>
           <section className="poke-card">
               <h2>Dracaufeu</h2>
