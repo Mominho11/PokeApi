@@ -1,4 +1,5 @@
 import './App.css'
+import Footer from "./components/Footer.tsx";
 
 function App() {
   return (
@@ -73,7 +74,7 @@ function App() {
                   <button>More ...</button>
               </li>
           </ul>
-
+          <Footer />
       </main>
   )
 }
