@@ -121,10 +121,11 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0.5rem auto;
     border: 1px solid grey;
     border-radius: 10px;
     width: 90%;
+    font-size: 0.8rem;
     align-self: center;
     background: rgb(32,78,213);
     background: linear-gradient(90deg, rgba(32,78,213,1) 0%, rgba(182,205,205,1) 0%, rgba(143,161,191,1) 100%);;
@@ -138,8 +139,12 @@ h1 {
   width: 90%;
   gap: 4rem;
   margin: 0 auto;
-  background: white;
+  background-image: url('../public/background-image.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 2px solid black;
+  border-radius: 10px;
+
   img {
     width: 150px;
   }

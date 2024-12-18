@@ -71,7 +71,7 @@ function App() {
 
             <section className="search-bar-input">
                 <input type="text" placeholder="Looking for a pokemon ?"/>
-                <button><img src="../public/pokeball-pokemon-svgrepo-com.svg" alt="Pokeball-Button"/></button>
+                <button><img src="../public/pokeball.svg" alt="Pokeball-Button"/></button>
             </section>
 
             <ul className="poke-card-container">
@@ -83,7 +83,7 @@ function App() {
                         <button className="open-details-button" onClick={() => {
                             setSelectedPokemon(() => pokemons.find((p) => p.name === pokemon.name));
                             setVisible(!visible);
-                        }} type="button">More . . .
+                        }} type="button">More
                         </button>
                     </li>
                 ))}
@@ -103,13 +103,19 @@ function App() {
                             <p>N° {selectedPokemon.id} Pokémon FakeFlamme Height: {selectedPokemon.height} Weight: {selectedPokemon.weight}</p>
                         </section>
 
-                        <p>{selectedDescription!}</p>
-                        {/*<p>{pokemon.types.map((type) => type.type.name.join(' - '))}</p>*/}
+                        <p className="pokemon-descrition">{selectedDescription!}</p>
+
+                        <ul className="pokemon-types">
+                            {selectedPokemon.types.map((type) => (
+                                <p className="badge">
+                                    {type.type.name}
+                                </p>
+                            ))}
+                        </ul>
                     </article>
 
 
-                    {/*<h2>You selected {pokemons[0].name} !</h2>*/}
-                    {/*<img src="" alt="Tempo"></img>*/}
+
                     {/*<p>{pokemons.types.map((type) => type.type.name).join(' - ')}</p>*/}
 
                 </section>
