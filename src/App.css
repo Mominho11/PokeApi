@@ -69,6 +69,7 @@ h1 {
 
   .poke-card {
     max-width: 225px;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,6 +80,7 @@ h1 {
     padding: 0.5rem;
     text-align: center;
     text-decoration: none;
+    background-color: darkslategrey;
 
     h2 {
       font-size: 1rem;
@@ -101,17 +103,45 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 50%;
+  width: 35%;
   height: 37.5rem;
   position: absolute;
   margin-top: 19dvh;
-  background-color: white;
-  border: 5px solid yellow;
+  border: 15px solid rgb(250,226,121);
   border-radius: 15px;
+  color: black;
+  background-color: rgb(223,112,75);
 
   h2 {
-    color: black;
+    margin-top: 8%;
+    text-align: center;
+  }
+
+  .pokemon-infos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 90%;
+    align-self: center;
+    background: rgb(32,78,213);
+    background: linear-gradient(90deg, rgba(32,78,213,1) 0%, rgba(182,205,205,1) 0%, rgba(143,161,191,1) 100%);;
+  }
+}
+
+.picture-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  gap: 4rem;
+  margin: 0 auto;
+  background: white;
+  border: 2px solid black;
+  img {
+    width: 150px;
   }
 }
 
