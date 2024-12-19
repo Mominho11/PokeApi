@@ -8,10 +8,24 @@ function App() {
     const modalRef = useRef<HTMLDivElement | null>(null);
     const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
     const [selectedDescription, setSelectedDescription] = useState<string | null>(null);
+    const [abilities, setAbilities] = useState({"one": null, "two": null});
+
+    const typeColors: Record<string, string> = {
+        fire: "rgb(222, 106, 77)",
+        water: "rgb(66, 127, 232)",
+        grass: "rgb(90, 160, 59)",
+        electric: "rgb(241, 196, 66)",
+        bug: "rgb(149, 162, 44)",
+        poison: "rgb(136, 68, 197)",
+        flying: "rgb(142, 185, 235)",
+        ground: "rgb(137, 83, 40)",
+        psychic: "rgb(221, 78, 122)",
+        rock: "rgb(175, 171, 134)",
+    };
 
     useEffect(() => {
         const fetchDatas = async () => {
-            const response = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=12?lang=fr");
+            const response = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0");
             const data = await response.json();
             const filteredDatas = data.results.filter((pokemon: Pokemon) => pokemon.name);
 
@@ -59,13 +73,25 @@ function App() {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${selectedPokemon.name}`);
             const data = await response.json();
             setSelectedDescription(data.flavor_text_entries[0].flavor_text);
-            console.log("Desc -> ", selectedDescription);
         }
         fetchDatas();
 
     }, [selectedPokemon]);
 
-    console.log("Pokemouille !!", selectedPokemon);
+    useEffect(() => {
+        const fetchDatas = async () => {
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${selectedPokemon.name}`);
+            const data = await response.json();
+
+            const abi = {
+                "one": data.abilities[0].ability.name,
+                "two": data.abilities[1].ability.name,
+            };
+            setAbilities(abi);
+        }
+        fetchDatas();
+
+    }, [selectedPokemon]);
 
     return (
         <main>
@@ -79,7 +105,7 @@ function App() {
             <ul className="poke-card-container">
                 {pokemons.map((pokemon: Pokemon) => (
                     <li className="poke-card" key={pokemon.id}>
-                        <h2>{ pokemon.name }</h2>
+                        <h2>{pokemon.name}</h2>
                         <img src={pokemon.sprites.front_default} alt={pokemon.name}></img>
                         <p className="test-type">{pokemon.types.map((type: Pokemon.types) => type.type.name).join(' - ')}</p>
                         <button className="open-details-button" onClick={() => {
@@ -93,35 +119,44 @@ function App() {
 
             {visible && selectedPokemon && (
                 <section className="poke-details-modal" ref={modalRef} onClick={handleModalClick}>
-                    <article>
-                        <h2>{selectedPokemon.name}</h2>
+                    {selectedPokemon.types.map((type: string) => (
+                        <div
+                            className="poke-card-background"
+                            style={{"--type-color": typeColors[selectedPokemon.types[0]?.type.name] || "gray"} as React.CSSProperties}>
+                            <article>
+                                <h2>{selectedPokemon.name}</h2>
 
-                        <div className="picture-container">
-                            <img src={selectedPokemon.sprites.front_default}
-                                 alt={`Image for ${selectedPokemon.name} normal`}></img>
+                                <div className="picture-container">
+                                    <img src={selectedPokemon.sprites.front_default}
+                                         alt={`Image for ${selectedPokemon.name} normal`}></img>
+                                </div>
+
+                                <section className="pokemon-infos">
+                                    <p>N° {selectedPokemon.id} Pokémon Fake Flamme
+                                        Height: {selectedPokemon.height} Weight: {selectedPokemon.weight}</p>
+                                </section>
+
+                                <ul className="pokemon-types">
+                                    {selectedPokemon.types.map((type: string) => (
+                                        <p className={`${type.type.name}-badge`}>
+                                            {type.type.name}
+                                        </p>
+                                    ))}
+                                </ul>
+
+                                <ul className="abilities">
+                                    <p className="ability">{abilities.one}</p>
+                                    <p className="ability">{abilities.two}</p>
+                                </ul>
+
+
+                                <p className="pokemon-description">{selectedDescription!}</p>
+
+                            </article>
+
+
                         </div>
-
-                        <section className="pokemon-infos">
-                            <p>N° {selectedPokemon.id} Pokémon FakeFlamme
-                                Height: {selectedPokemon.height} Weight: {selectedPokemon.weight}</p>
-                        </section>
-
-                        <ul className="pokemon-types">
-                            {selectedPokemon.types.map((type: string) => (
-                                <p className={`${type.type.name}-badge`} >
-                                    {type.type.name}
-                                </p>
-                            ))}
-                        </ul>
-
-
-
-                        <p className="pokemon-descrition">{selectedDescription!}</p>
-
-                    </article>
-
-
-
+                    ))}
                 </section>
             )}
         </main>

@@ -1,220 +1,265 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 main {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
 
 }
 
 h1 {
-  font-size: 0.8rem;
-  padding: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.5rem;
 
-  @media (min-width: 321px) {
-    font-size: 2rem;
-  }
+    @media (min-width: 321px) {
+        font-size: 2rem;
+    }
 }
 
 .search-bar-input {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-
-  img {
-    width: 35px;
-
-    @media (min-width: 321px) {
-      width: 50px;
-    }
-  }
-  button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-
-    &:hover {
-      border: none;
-      transform: scale(1.3);
-    }
-  }
-
-  input {
-    width: 180px;
-    margin: 1rem auto;
-    border-radius: 15px;
-    text-align: center;
-
-    @media (min-width: 321px) {
-      width: 450px;
-      padding: 0.7rem;
-    }
-  }
-}
-
-.poke-card-container {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 1rem;
-
-  .poke-card {
-    max-width: 225px;
-    min-height: 150px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid black;
-    width: 250px;
-    overflow: auto;
-    border-radius: 15px;
-    padding: 0.5rem;
-    text-align: center;
-    text-decoration: none;
-    background-color: darkslategrey;
-
-    h2 {
-      font-size: 1rem;
-    }
+    justify-content: center;
+    gap: 1rem;
 
     img {
-      width: 150px;
+        width: 35px;
+
+        @media (min-width: 321px) {
+            width: 50px;
+        }
     }
 
     button {
-      border-radius: 15px;
-      cursor: pointer;
-      padding: 0.5rem;
-      margin-top: 0.4rem;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            border: none;
+            transform: scale(1.3);
+        }
     }
-  }
+
+    input {
+        width: 180px;
+        margin: 1rem auto;
+        border-radius: 15px;
+        text-align: center;
+
+        @media (min-width: 321px) {
+            width: 450px;
+            padding: 0.7rem;
+        }
+    }
 }
 
-.poke-details-modal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 35%;
-  height: 37.5rem;
-  position: absolute;
-  margin-top: 19dvh;
-  border: 15px solid rgb(250,226,121);
-  border-radius: 15px;
-  color: black;
-  background-color: rgb(223,112,75);
-
-  h2 {
-    margin-left: 1.7rem;
-  }
-
-  .pokemon-infos {
+.poke-card-container {
+    width: 80%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0.5rem auto;
-    border: 1px solid grey;
-    border-radius: 10px;
-    width: 90%;
-    font-size: 0.8rem;
-    align-self: center;
-    background: rgb(32,78,213);
-    background: linear-gradient(90deg, rgba(32,78,213,1) 0%, rgba(182,205,205,1) 0%, rgba(143,161,191,1) 100%);
-  }
-
-  .pokemon-types {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
-  }
+    padding: 1rem;
+
+    .poke-card {
+        max-width: 225px;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid black;
+        width: 250px;
+        overflow: auto;
+        border-radius: 15px;
+        padding: 0.5rem;
+        text-align: center;
+        text-decoration: none;
+        background-color: darkslategrey;
+
+        h2 {
+            font-size: 1rem;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        button {
+            border-radius: 15px;
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-top: 0.4rem;
+        }
+    }
+}
+
+.poke-card-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
+    height: 37.5rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 15px solid rgb(250, 226, 121);
+    border-radius: 15px;
+    color: black;
+    background-color: var(--type-color);
+    z-index: 1000;
+
+
+    h2 {
+        margin-left: 1.7rem;
+    }
+
+    .pokemon-infos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0.5rem auto;
+        border: 1px solid grey;
+        border-radius: 10px;
+        width: 90%;
+        font-size: 0.8rem;
+        align-self: center;
+        background: rgb(32, 78, 213);
+        background: linear-gradient(90deg, rgba(32, 78, 213, 1) 0%, rgba(182, 205, 205, 1) 0%, rgba(143, 161, 191, 1) 100%);
+    }
+
+    .pokemon-types {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .abilities {
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+        margin: 0.5rem auto;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+
+        .ability {
+            border: 3px double black;
+            width: 8rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    }
+
+    .pokemon-description {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-size: 1.1rem;
+        border: 3px double black;
+        height: 7rem;
+        width: 80%;
+        margin-left: 3rem;
+    }
+
 }
 
 .grass-badge {
-  margin: 0.5rem;
-  padding: 0.3rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background: green;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: green;
 }
 
 .fire-badge {
-  margin: 0.5rem;
-  padding: 0.3rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background: red;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: red;
 }
 
 .poison-badge {
-  margin: 0.5rem;
-  padding: 0.3rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background: red;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: purple;
 }
 
 .flying-badge {
-  margin: 0.5rem;
-  padding: 0.3rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background: red;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: lightblue;
 }
 
 .water-badge {
-  margin: 0.5rem;
-  padding: 0.3rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background: red;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: blue;
 }
 
 .bug-badge {
-  margin: 0.5rem;
-  padding: 0.3rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background: greenyellow;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: greenyellow;
+}
+
+.normal-badge {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: darkgrey;
 }
 
 .picture-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  gap: 4rem;
-  margin: 0 auto;
-  background-image: url('../public/background-image.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 2px solid black;
-  border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    gap: 4rem;
+    margin: 0 auto;
+    background-image: url('../public/background-image.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid black;
+    border-radius: 10px;
 
-  img {
-    width: 150px;
-  }
+    img {
+        width: 150px;
+        height: 200px;
+    }
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  border-top: 1px solid black;
-  width: 80%;
-  margin: 0 auto;
-  font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 0.8rem;
 
-  @media (prefers-color-scheme: dark) {
-    border-top: 1px solid white;
-  }
+    @media (prefers-color-scheme: dark) {
+        border-top: 1px solid white;
+    }
 }
 
 
