@@ -65,6 +65,8 @@ function App() {
 
     }, [selectedPokemon]);
 
+    console.log("Pokemouille !!", selectedPokemon);
+
     return (
         <main>
             <h1>Welcome to our beautiful Pokedex</h1>
@@ -77,7 +79,7 @@ function App() {
             <ul className="poke-card-container">
                 {pokemons.map((pokemon: Pokemon) => (
                     <li className="poke-card" key={pokemon.id}>
-                        <h2>{pokemon.name}</h2>
+                        <h2>{ pokemon.name }</h2>
                         <img src={pokemon.sprites.front_default} alt={pokemon.name}></img>
                         <p className="test-type">{pokemon.types.map((type: Pokemon.types) => type.type.name).join(' - ')}</p>
                         <button className="open-details-button" onClick={() => {
@@ -92,7 +94,7 @@ function App() {
             {visible && selectedPokemon && (
                 <section className="poke-details-modal" ref={modalRef} onClick={handleModalClick}>
                     <article>
-                        <h2>You selected {selectedPokemon.name} !</h2>
+                        <h2>{selectedPokemon.name}</h2>
 
                         <div className="picture-container">
                             <img src={selectedPokemon.sprites.front_default}
@@ -100,23 +102,25 @@ function App() {
                         </div>
 
                         <section className="pokemon-infos">
-                            <p>N° {selectedPokemon.id} Pokémon FakeFlamme Height: {selectedPokemon.height} Weight: {selectedPokemon.weight}</p>
+                            <p>N° {selectedPokemon.id} Pokémon FakeFlamme
+                                Height: {selectedPokemon.height} Weight: {selectedPokemon.weight}</p>
                         </section>
 
-                        <p className="pokemon-descrition">{selectedDescription!}</p>
-
                         <ul className="pokemon-types">
-                            {selectedPokemon.types.map((type) => (
-                                <p className="badge">
+                            {selectedPokemon.types.map((type: string) => (
+                                <p className={`${type.type.name}-badge`} >
                                     {type.type.name}
                                 </p>
                             ))}
                         </ul>
+
+
+
+                        <p className="pokemon-descrition">{selectedDescription!}</p>
+
                     </article>
 
 
-
-                    {/*<p>{pokemons.types.map((type) => type.type.name).join(' - ')}</p>*/}
 
                 </section>
             )}

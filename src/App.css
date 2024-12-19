@@ -113,8 +113,7 @@ h1 {
   background-color: rgb(223,112,75);
 
   h2 {
-    margin-top: 8%;
-    text-align: center;
+    margin-left: 1.7rem;
   }
 
   .pokemon-infos {
@@ -128,8 +127,63 @@ h1 {
     font-size: 0.8rem;
     align-self: center;
     background: rgb(32,78,213);
-    background: linear-gradient(90deg, rgba(32,78,213,1) 0%, rgba(182,205,205,1) 0%, rgba(143,161,191,1) 100%);;
+    background: linear-gradient(90deg, rgba(32,78,213,1) 0%, rgba(182,205,205,1) 0%, rgba(143,161,191,1) 100%);
   }
+
+  .pokemon-types {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+.grass-badge {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: green;
+}
+
+.fire-badge {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: red;
+}
+
+.poison-badge {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: red;
+}
+
+.flying-badge {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: red;
+}
+
+.water-badge {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: red;
+}
+
+.bug-badge {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: greenyellow;
 }
 
 .picture-container {
