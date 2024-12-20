@@ -25,7 +25,7 @@ function App() {
 
     useEffect(() => {
         const fetchDatas = async () => {
-            const response = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0");
+            const response = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=151");
             const data = await response.json();
             const filteredDatas = data.results.filter((pokemon: Pokemon) => pokemon.name);
 
