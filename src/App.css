@@ -179,7 +179,7 @@ h1 {
     padding: 0.3rem;
     border: 1px solid black;
     border-radius: 10px;
-    background: green;
+    background: rgb(65, 120, 45); /* Couleur légèrement plus foncée */
 }
 
 .fire-badge {
@@ -190,28 +190,20 @@ h1 {
     background: red;
 }
 
-.poison-badge {
-    margin: 0.5rem;
-    padding: 0.3rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    background: purple;
-}
-
-.flying-badge {
-    margin: 0.5rem;
-    padding: 0.3rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    background: lightblue;
-}
-
 .water-badge {
     margin: 0.5rem;
     padding: 0.3rem;
     border: 1px solid black;
     border-radius: 10px;
-    background: blue;
+    background: rgb(50, 95, 175); /* Couleur légèrement plus foncée */
+}
+
+.electric-badge {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: rgb(200, 160, 50); /* Couleur légèrement plus foncée */
 }
 
 .bug-badge {
@@ -219,7 +211,47 @@ h1 {
     padding: 0.3rem;
     border: 1px solid black;
     border-radius: 10px;
-    background: greenyellow;
+    background: rgb(120, 135, 40); /* Couleur légèrement plus foncée */
+}
+
+.poison-badge {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: rgb(110, 55, 160); /* Couleur légèrement plus foncée */
+}
+
+.flying-badge {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: rgb(115, 150, 190); /* Couleur légèrement plus foncée */
+}
+
+.ground-badge {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: rgb(110, 70, 35); /* Couleur légèrement plus foncée */
+}
+
+.psychic-badge {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: rgb(185, 65, 100); /* Couleur légèrement plus foncée */
+}
+
+.rock-badge {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: rgb(140, 135, 110); /* Couleur légèrement plus foncée */
 }
 
 .normal-badge {
@@ -227,7 +259,7 @@ h1 {
     padding: 0.3rem;
     border: 1px solid black;
     border-radius: 10px;
-    background: darkgrey;
+    background: dimgrey; /* Couleur légèrement plus foncée */
 }
 
 .picture-container {
