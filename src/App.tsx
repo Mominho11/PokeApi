@@ -1,5 +1,5 @@
 import './App.css'
-import {useCallback, useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Pokemon from "./interfaces/Pokemon.tsx";
 
 function App() {
@@ -32,27 +32,24 @@ function App() {
 
     }, [])
 
-    const handleOutsideClick = useCallback(
-        (event: MouseEvent) => {
-            console.log('Modal ?? ', visible)
+    useEffect(() => {
+        const handleOutsideClick = (event: MouseEvent) => {
             if (modalRef.current && !modalRef.current.contains(event.target as Node) && visible) {
-                console.log("Je clique dehors, je dois cacher le modal !");
                 setVisible(false);
             }
-        },
-        [visible]
-    );
+        };
 
-    useEffect(() => {
         if (visible) {
-            console.log("Le modal est visible !")
-            document.addEventListener('click', handleOutsideClick);
+            setTimeout(() => {
+                document.addEventListener('click', handleOutsideClick);
+            }, 0);
         }
 
         return () => {
             document.removeEventListener('click', handleOutsideClick);
-        }
-    }, [handleOutsideClick, visible]);
+        };
+    }, [visible]);
+
 
     const handleModalClick = (event: MouseEvent) => {
         event.stopPropagation();
@@ -77,8 +74,9 @@ function App() {
         console.log("searchname", searchName)
         console.log("Test ", Array(searchName))
 
-        if (Array(searchName).length > 2) { // Marche po chef !!
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon?${searchName}`);
+        if (searchName.length > 2) { // Marche po chef !!
+            console.log("INSCH ", searchName) // Ici je l'ai mais le fetch marche pas !!
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?${searchName}`);
             const data = await response.json();
 
             console.log('Pokename fetché sur base de son nom ! -> ', data);
